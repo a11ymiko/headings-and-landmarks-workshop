@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Answers – Headings &amp; Landmarks workshop</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="site-title" href="../index.html">Headings &amp; Landmarks</a>
+      <nav class="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="../index.html">Workshop</a></li>
+          <li><a href="broken.html">Broken page</a></li>
+          <li><a href="fixed.html">Fixed page</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="page wrap" tabindex="-1">
+    <h1>Answers: what’s wrong with the broken page</h1>
+    <p class="lede">Try the <a href="worksheet.html">audit worksheet</a> first. Then compare your list with this one.</p>
+
+    <h2>Headings</h2>
+    <div class="table-scroll">
+      <table>
+        <thead><tr><th scope="col">Problem</th><th scope="col">What the user hears</th><th scope="col">Fix</th></tr></thead>
+        <tbody>
+          <tr><td>The logo “Riverside Library” is the <code>h1</code>.</td><td>The same h1 on every page; pressing <kbd>1</kbd> never reaches the page topic.</td><td>Make the logo a link in a <code>&lt;p&gt;</code>; make the page title the <code>h1</code>.</td></tr>
+          <tr><td>The page title is a styled <code>&lt;div&gt;</code>.</td><td>Not in the headings list at all.</td><td><code>&lt;h1&gt;Autumn Reading Festival 2026&lt;/h1&gt;</code></td></tr>
+          <tr><td>“About the festival” is an <code>h4</code> right after the <code>h1</code>.</td><td>“Heading level 4” — levels 2 and 3 seem to be missing.</td><td>Use <code>h2</code>.</td></tr>
+          <tr><td>“Programme” is bold text in a paragraph.</td><td>Not a heading; the days appear to belong to “About the festival”.</td><td>Use <code>h2</code>.</td></tr>
+          <tr><td>The days are <code>h2</code> but belong under “Programme”.</td><td>Days look like top-level sections.</td><td>Use <code>h3</code>.</td></tr>
+          <tr><td>“Getting here” is an <code>h5</code>.</td><td>Skips from h2 to h5.</td><td>Use <code>h2</code>.</td></tr>
+          <tr><td>An empty <code>h3</code> is used for spacing.</td><td>“Heading level 3” and nothing else.</td><td>Remove it; use CSS margins.</td></tr>
+          <tr><td>“Opening hours” is <code>&lt;strong&gt;</code>.</td><td>Not in the headings list — the most-wanted info is the hardest to find.</td><td>Use <code>h2</code>.</td></tr>
+          <tr><td>“Related events” is an <code>h6</code>, “Get the newsletter” is a <code>&lt;div&gt;</code>.</td><td>Odd levels; newsletter not findable.</td><td>Use <code>h2</code> for each sidebar box.</td></tr>
+          <tr><td>“Library information” in the footer is a <code>&lt;div&gt;</code>.</td><td>Not findable by headings.</td><td>Use <code>h2</code>.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>Landmarks</h2>
+    <div class="table-scroll">
+      <table>
+        <thead><tr><th scope="col">Problem</th><th scope="col">What the user hears</th><th scope="col">Fix</th></tr></thead>
+        <tbody>
+          <tr><td>No <code>main</code>.</td><td>No way to jump to the content; no skip link either.</td><td>Wrap the article in <code>&lt;main id="main"&gt;</code> and add a skip link.</td></tr>
+          <tr><td>Top bar is a <code>&lt;div&gt;</code>.</td><td>No banner landmark.</td><td>Use a top-level <code>&lt;header&gt;</code>.</td></tr>
+          <tr><td>The main menu is a <code>&lt;div&gt;</code>…</td><td>The primary navigation is missing from the landmarks list.</td><td><code>&lt;nav aria-label="Main"&gt;</code></td></tr>
+          <tr><td>…while breadcrumbs and footer links <em>are</em> <code>&lt;nav&gt;</code>, both unlabeled.</td><td>Two identical “navigation” landmarks, neither of them the main menu.</td><td><code>aria-label="Breadcrumb"</code>, <code>aria-labelledby</code> the footer heading.</td></tr>
+          <tr><td>Search form has no role.</td><td>No search landmark.</td><td><code>&lt;form role="search"&gt;</code> or wrap it in <code>&lt;search&gt;</code>.</td></tr>
+          <tr><td>Sidebar is a <code>&lt;div&gt;</code>.</td><td>No complementary landmark.</td><td><code>&lt;aside aria-label="Plan your visit"&gt;</code></td></tr>
+          <tr><td>Footer is a <code>&lt;div&gt;</code>.</td><td>No contentinfo landmark.</td><td>Use a top-level <code>&lt;footer&gt;</code>.</td></tr>
+          <tr><td>Almost all content sits outside any landmark.</td><td>Landmark navigation skips most of the page.</td><td>All of the above.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout good">
+      <p>
+        Notice what did <strong>not</strong> change: the fixed page looks exactly the same.
+        Good structure costs nothing visually — the CSS classes stay, only the elements change.
+      </p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p><a href="../index.html#exercises">Back to the exercises</a></p>
+    </div>
+  </footer>
+</body>
+</html>

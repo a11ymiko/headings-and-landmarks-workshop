@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Autumn Reading Festival 2026 – Riverside Library</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+  <!--
+    EXERCISE PAGE — FIXED STRUCTURE
+    Same content and same look as broken.html. Compare the two with a screen reader.
+  -->
+
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <div class="demo-banner good" data-hl-ignore>
+    <div class="wrap">
+      <span><strong>Exercise page:</strong> fixed structure.</span>
+      <span>
+        <button type="button" class="button" data-toggle-inspector aria-expanded="false">Show page structure</button>
+        <a href="../index.html#exercises">Back to the workshop</a>
+      </span>
+    </div>
+  </div>
+
+  <!-- banner landmark: a top-level <header> -->
+  <header class="lib-top">
+    <div class="wrap">
+      <!-- The logo is NOT a heading: it's the same on every page, so it tells you nothing about this page. -->
+      <p class="lib-logo"><a href="#">Riverside Library</a></p>
+
+      <!-- Two navigation landmarks on the page, so each gets a distinct label. -->
+      <nav aria-label="Main">
+        <ul class="lib-menu">
+          <li><a href="#">Books &amp; media</a></li>
+          <li><a href="#">Events</a></li>
+          <li><a href="#">Kids &amp; teens</a></li>
+          <li><a href="#">Visit us</a></li>
+        </ul>
+      </nav>
+
+      <!-- search landmark. You can also wrap the form in the newer <search> element instead. -->
+      <form class="lib-search" action="#" role="search">
+        <label for="q" class="visually-hidden">Search the catalogue</label>
+        <input id="q" type="search" placeholder="Search the catalogue">
+        <button type="submit">Search</button>
+      </form>
+    </div>
+  </header>
+
+  <div class="wrap">
+    <nav class="lib-crumbs" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Events</a></li>
+        <li aria-current="page">Autumn Reading Festival</li>
+      </ol>
+    </nav>
+
+    <div class="lib-layout">
+      <!-- main landmark: exactly one per page. The skip link points here. -->
+      <main id="main" tabindex="-1">
+        <!-- One h1: the topic of THIS page. -->
+        <h1 class="t-page">Autumn Reading Festival 2026</h1>
+        <p class="lib-meta">14–15 November · Riverside Library, Main Hall · Free entry</p>
+        <div class="lib-hero" role="img" aria-label="Illustration of autumn leaves"></div>
+
+        <h2 class="t-section">About the festival</h2>
+        <p>
+          Two days of author talks, reading circles and workshops for every age.
+          This year’s theme is <em>Stories that travel</em>: books about journeys,
+          migration and finding your way in a new place.
+        </p>
+        <p>
+          All events are free, but some workshops have limited places. Booking opens
+          on 1 November at the information desk or by phone.
+        </p>
+
+        <h2 class="t-section">Programme</h2>
+
+        <!-- h3 because each day is a sub-part of "Programme". Level = position in the outline, not font size. -->
+        <h3 class="t-sub">Saturday 14 November</h3>
+        <ul class="lib-events">
+          <li><span class="when">10:00 · Children’s corner</span> Picture-book reading: “The Little Ferry”</li>
+          <li><span class="when">12:30 · Main Hall</span> Author talk: Writing about home when home moves</li>
+          <li><span class="when">15:00 · Room 2</span> Workshop: Make your own travel zine (booking needed)</li>
+        </ul>
+
+        <h3 class="t-sub">Sunday 15 November</h3>
+        <ul class="lib-events">
+          <li><span class="when">11:00 · Room 2</span> Reading circle in easy-read English</li>
+          <li><span class="when">13:00 · Main Hall</span> Panel: Translators on bringing stories across borders</li>
+          <li><span class="when">16:00 · Café</span> Closing quiz and book swap</li>
+        </ul>
+
+        <h2 class="t-section">Getting here</h2>
+        <p>
+          Riverside Library is a five-minute walk from Central Station. Bus lines 4 and 12
+          stop right outside. The main entrance has step-free access and there is a lift to
+          every floor.
+        </p>
+        <!-- The empty spacer heading is gone: use CSS margins for spacing. -->
+        <p>
+          Hearing loops are available in the Main Hall and Room 2. Talks in the Main Hall
+          are live-captioned.
+        </p>
+      </main>
+
+      <!-- complementary landmark: related to the page, but makes sense on its own. -->
+      <aside aria-label="Plan your visit">
+        <section class="lib-side-box" aria-labelledby="hours-heading">
+          <h2 id="hours-heading" class="t-side">Opening hours</h2>
+          <table class="lib-hours">
+            <tr><th scope="row">Mon–Fri</th><td>09:00–20:00</td></tr>
+            <tr><th scope="row">Saturday</th><td>10:00–18:00</td></tr>
+            <tr><th scope="row">Sunday</th><td>11:00–17:00</td></tr>
+          </table>
+        </section>
+
+        <div class="lib-side-box">
+          <h2 class="t-side">Related events</h2>
+          <ul>
+            <li><a href="#">Winter poetry nights</a></li>
+            <li><a href="#">Coding club for teens</a></li>
+            <li><a href="#">Language café</a></li>
+          </ul>
+        </div>
+
+        <div class="lib-side-box">
+          <h2 id="newsletter-heading" class="t-side">Get the newsletter</h2>
+          <!-- A <form> becomes a "form" landmark only when it has an accessible name. -->
+          <form class="lib-newsletter" action="#" aria-labelledby="newsletter-heading">
+            <label for="email">Email address</label>
+            <input id="email" type="email" autocomplete="email">
+            <button type="submit" class="button">Subscribe</button>
+          </form>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <!-- contentinfo landmark: a top-level <footer> -->
+  <footer class="lib-footer">
+    <div class="wrap">
+      <div>
+        <h2 class="t-foot">Contact</h2>
+        <p>Riverside Library<br>1 River Street<br>Phone 0123 456 789</p>
+      </div>
+      <div>
+        <h2 class="t-foot">Follow us</h2>
+        <ul>
+          <li><a href="#">Newsletter</a></li>
+          <li><a href="#">Events calendar</a></li>
+        </ul>
+      </div>
+      <nav aria-labelledby="footer-nav-heading">
+        <h2 id="footer-nav-heading" class="t-foot">Library information</h2>
+        <ul>
+          <li><a href="#">Accessibility statement</a></li>
+          <li><a href="#">Privacy</a></li>
+          <li><a href="#">Jobs</a></li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="../assets/demo.js"></script>
+  <script src="../assets/inspector.js"></script>
+</body>
+</html>

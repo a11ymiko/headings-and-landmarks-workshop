@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Screen reader cheat sheet – Headings &amp; Landmarks workshop</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="site-title" href="index.html">Headings &amp; Landmarks</a>
+      <nav class="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="index.html">Workshop</a></li>
+          <li><a href="index.html#exercises">Exercises</a></li>
+          <li><a href="cheatsheet.html" aria-current="page">Screen reader cheat sheet</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="page wrap" tabindex="-1">
+    <h1>Screen reader cheat sheet</h1>
+    <p class="lede">The keys you need for this workshop, for NVDA on Windows and VoiceOver on macOS.</p>
+
+    <h2>NVDA (Windows)</h2>
+    <h3>Getting started</h3>
+    <ul>
+      <li>Download it free from <a href="https://www.nvaccess.org/download/">nvaccess.org/download</a>. A portable copy works without installing.</li>
+      <li>Start: <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>N</kbd>. Quit: <kbd>NVDA</kbd>+<kbd>Q</kbd>.</li>
+      <li>The <kbd>NVDA</kbd> key is <kbd>Insert</kbd> by default (or <kbd>Caps Lock</kbd> if you choose the laptop layout).</li>
+      <li>Stop speech: <kbd>Ctrl</kbd>. Use Chrome, Edge or Firefox.</li>
+      <li>Tip: turn on Speech Viewer (NVDA menu → Tools) to see what NVDA says.</li>
+    </ul>
+
+    <h3>Navigating structure (browse mode)</h3>
+    <div class="table-scroll">
+      <table>
+        <thead><tr><th scope="col">Action</th><th scope="col">Keys</th></tr></thead>
+        <tbody>
+          <tr><td>Next / previous heading</td><td><kbd>H</kbd> / <kbd>Shift</kbd>+<kbd>H</kbd></td></tr>
+          <tr><td>Next heading at level 1–6</td><td><kbd>1</kbd> … <kbd>6</kbd> (add <kbd>Shift</kbd> for previous)</td></tr>
+          <tr><td>Next / previous landmark</td><td><kbd>D</kbd> / <kbd>Shift</kbd>+<kbd>D</kbd></td></tr>
+          <tr><td>Elements list (headings, landmarks, links)</td><td><kbd>NVDA</kbd>+<kbd>F7</kbd></td></tr>
+          <tr><td>Read from here</td><td><kbd>NVDA</kbd>+<kbd>↓</kbd></td></tr>
+          <tr><td>Next / previous line</td><td><kbd>↓</kbd> / <kbd>↑</kbd></td></tr>
+          <tr><td>Switch browse / focus mode</td><td><kbd>NVDA</kbd>+<kbd>Space</kbd></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>VoiceOver (macOS)</h2>
+    <h3>Getting started</h3>
+    <ul>
+      <li>Turn on and off: <kbd>Cmd</kbd>+<kbd>F5</kbd> (or triple-press Touch ID).</li>
+      <li>The <kbd>VO</kbd> key is <kbd>Control</kbd>+<kbd>Option</kbd> (or <kbd>Caps Lock</kbd> if enabled in VoiceOver Utility).</li>
+      <li>Stop speech: <kbd>Control</kbd>. Use Safari for the most reliable results.</li>
+      <li>Tip: turn on Quick Nav (<kbd>←</kbd>+<kbd>→</kbd> together) to use single-key navigation without <kbd>VO</kbd>.</li>
+      <li>Tip: in Safari, enable <em>Press Tab to highlight each item</em> (Settings → Advanced) to tab to links.</li>
+    </ul>
+
+    <h3>Navigating structure</h3>
+    <div class="table-scroll">
+      <table>
+        <thead><tr><th scope="col">Action</th><th scope="col">Keys</th></tr></thead>
+        <tbody>
+          <tr><td>Rotor (headings, landmarks, links, form controls)</td><td><kbd>VO</kbd>+<kbd>U</kbd>, then <kbd>←</kbd>/<kbd>→</kbd> to change list, <kbd>↑</kbd>/<kbd>↓</kbd> to pick, <kbd>Return</kbd> to go</td></tr>
+          <tr><td>Next / previous heading</td><td><kbd>VO</kbd>+<kbd>Cmd</kbd>+<kbd>H</kbd> / add <kbd>Shift</kbd></td></tr>
+          <tr><td>Next heading (Quick Nav on)</td><td><kbd>H</kbd> / <kbd>Shift</kbd>+<kbd>H</kbd>; levels with <kbd>1</kbd> … <kbd>6</kbd></td></tr>
+          <tr><td>Jump to a landmark</td><td>Rotor (<kbd>VO</kbd>+<kbd>U</kbd>) → Landmarks list</td></tr>
+          <tr><td>Read from here</td><td><kbd>VO</kbd>+<kbd>A</kbd></td></tr>
+          <tr><td>Next / previous item</td><td><kbd>VO</kbd>+<kbd>→</kbd> / <kbd>VO</kbd>+<kbd>←</kbd></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>Tips for testing with a screen reader</h2>
+    <ul>
+      <li><strong>Use the lists first.</strong> The headings and landmarks lists show the page’s map in seconds.</li>
+      <li><strong>Listen for the level.</strong> “Heading level 4” right after “heading level 1” means a skipped level.</li>
+      <li><strong>Listen for duplicates.</strong> Two landmarks both called “navigation” can’t be told apart.</li>
+      <li><strong>Slow down speech</strong> while you learn, speed it up later. Nobody expects you to be fast.</li>
+      <li><strong>Don’t mix up your screen reader and real users’ experience.</strong> You are checking structure, not imitating how an expert uses it.</li>
+    </ul>
+
+    <p><a href="index.html#exercises">Back to the exercises</a></p>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>Source on <a href="https://github.com/zenobia-gawlikowska/headings-and-landmarks-workshop">GitHub</a>.</p>
+    </div>
+  </footer>
+</body>
+</html>

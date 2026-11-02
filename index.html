@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Headings and Landmarks – Screen reader workshop</title>
+  <meta name="description" content="Hands-on workshop: structure pages with headings and landmarks, check heading levels, and navigate with a screen reader.">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="site-title" href="index.html">Headings &amp; Landmarks</a>
+      <nav class="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="#why">Why it matters</a></li>
+          <li><a href="#headings">Headings</a></li>
+          <li><a href="#landmarks">Landmarks</a></li>
+          <li><a href="#check">Check your work</a></li>
+          <li><a href="#exercises">Exercises</a></li>
+          <li><a href="cheatsheet.html">Screen reader cheat sheet</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="page wrap" tabindex="-1">
+    <h1>Headings and landmarks: the map screen reader users rely on</h1>
+    <p class="lede">
+      A sighted user glances at a page and sees its shape. A screen reader user gets that
+      shape from headings and landmarks. If they are wrong, the page has no map.
+    </p>
+
+    <section>
+      <h2 id="why">Why it matters</h2>
+      <ul class="stats">
+        <li><strong>~70%</strong> of screen reader users navigate a long page by headings first.</li>
+        <li><strong>~30%</strong> use landmarks when they are available.</li>
+      </ul>
+      <p>
+        Source: <a href="https://webaim.org/projects/screenreadersurvey10/">WebAIM Screen Reader User Survey</a>.
+        Screen readers let you list every heading or landmark on a page and jump straight to one.
+        That only works if the page uses real headings and landmarks, in a sensible order.
+      </p>
+    </section>
+
+    <section>
+      <h2 id="learn">What you will learn</h2>
+      <ul>
+        <li>How to structure pages with headings and landmarks</li>
+        <li>How to check heading levels in your own work</li>
+        <li>Practical tips for running and using a screen reader</li>
+        <li>Hands-on: navigate a page and audit its heading and landmark structure</li>
+      </ul>
+      <div class="callout">
+        <p><strong>Before the session:</strong> make sure you can run a screen reader.</p>
+        <ul>
+          <li><strong>Windows:</strong> install <a href="https://www.nvaccess.org/download/">NVDA</a> (free).</li>
+          <li><strong>macOS:</strong> VoiceOver is built in. Turn it on and off with <kbd>Cmd</kbd>+<kbd>F5</kbd>.</li>
+        </ul>
+        <p>Then read the <a href="cheatsheet.html">screen reader cheat sheet</a>.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="headings">Headings</h2>
+      <p>
+        Headings are a table of contents built into the page. Screen readers announce them
+        with their level (“heading level 2, Programme”) and let users jump from one to the next.
+      </p>
+
+      <h3>The rules</h3>
+      <ol>
+        <li><strong>Use real heading elements</strong> (<code>&lt;h1&gt;</code>–<code>&lt;h6&gt;</code>). Bold text or a big <code>&lt;div&gt;</code> looks like a heading but is not one.</li>
+        <li><strong>One <code>&lt;h1&gt;</code></strong> for the topic of the page. Not the logo: it is the same on every page.</li>
+        <li><strong>Don’t skip levels going down.</strong> After an <code>h2</code> comes an <code>h3</code>, not an <code>h4</code>. Going back up any number of levels is fine.</li>
+        <li><strong>Pick the level from the outline, not the font size.</strong> Change the look with CSS.</li>
+        <li><strong>Every heading has a section of content after it</strong>, and every heading has text. No empty “spacer” headings.</li>
+        <li><strong>Headings describe what follows.</strong> “Opening hours” beats “Info”.</li>
+      </ol>
+
+      <h3>Example outline</h3>
+<pre><code>h1 Autumn Reading Festival 2026
+  h2 About the festival
+  h2 Programme
+    h3 Saturday 14 November
+    h3 Sunday 15 November
+  h2 Getting here
+  h2 Opening hours        (sidebar)
+  h2 Related events       (sidebar)
+  h2 Contact              (footer)</code></pre>
+    </section>
+
+    <section>
+      <h2 id="landmarks">Landmarks</h2>
+      <p>
+        Landmarks are the big regions of the page. Screen readers list them and jump between
+        them, so users can skip straight to the main content, the navigation or the search.
+        Use the HTML element first; reach for ARIA roles only when there is no element.
+      </p>
+
+      <div class="table-scroll">
+        <table>
+          <caption class="visually-hidden">HTML elements and the landmarks they create</caption>
+          <thead>
+            <tr><th scope="col">HTML</th><th scope="col">Landmark</th><th scope="col">Notes</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>&lt;header&gt;</code></td><td>banner</td><td>Only when it is not inside <code>article</code>, <code>aside</code>, <code>main</code>, <code>nav</code> or <code>section</code>.</td></tr>
+            <tr><td><code>&lt;nav&gt;</code></td><td>navigation</td><td>For major groups of links. More than one? Give each a label: <code>aria-label="Main"</code>, <code>"Breadcrumb"</code>, <code>"Footer"</code>.</td></tr>
+            <tr><td><code>&lt;main&gt;</code></td><td>main</td><td>Exactly one per page. Point the skip link at it.</td></tr>
+            <tr><td><code>&lt;aside&gt;</code></td><td>complementary</td><td>Related content that makes sense on its own.</td></tr>
+            <tr><td><code>&lt;footer&gt;</code></td><td>contentinfo</td><td>Same rule as <code>header</code>.</td></tr>
+            <tr><td><code>&lt;form role="search"&gt;</code> or <code>&lt;search&gt;</code></td><td>search</td><td>The site or page search.</td></tr>
+            <tr><td><code>&lt;section&gt;</code> / <code>&lt;form&gt;</code></td><td>region / form</td><td>Only when they have an accessible name (<code>aria-labelledby</code> or <code>aria-label</code>).</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>The rules</h3>
+      <ol>
+        <li><strong>All content lives inside a landmark.</strong> Anything outside is easy to miss.</li>
+        <li><strong>Same role twice? Label them differently.</strong> Two unlabeled “navigation” landmarks sound identical.</li>
+        <li><strong>Don’t put the word “navigation” in the label.</strong> The screen reader already says it: <code>aria-label="Main"</code>, not <code>"Main navigation"</code>.</li>
+        <li><strong>Keep it small.</strong> A handful of landmarks is a map; twenty is noise.</li>
+      </ol>
+    </section>
+
+    <section>
+      <h2 id="check">How to check heading levels in your own work</h2>
+
+      <h3>1. Use a screen reader’s list</h3>
+      <ul>
+        <li><strong>NVDA:</strong> <kbd>NVDA</kbd>+<kbd>F7</kbd> opens the Elements List. Choose Headings or Landmarks.</li>
+        <li><strong>VoiceOver:</strong> <kbd>VO</kbd>+<kbd>U</kbd> opens the rotor. Use <kbd>←</kbd>/<kbd>→</kbd> to switch to Headings or Landmarks.</li>
+      </ul>
+
+      <h3>2. Use the structure inspector from this workshop</h3>
+      <p>
+        Drag this link to your bookmarks bar, then click it on any page. It lists the
+        headings and landmarks and flags skipped levels, empty headings, missing
+        <code>main</code>, duplicate unlabeled landmarks and content outside landmarks.
+      </p>
+      <p>
+        <a class="button" id="bookmarklet" href="javascript:(function(){var s=document.createElement('script');s.src='https://zenobia-gawlikowska.github.io/headings-and-landmarks-workshop/assets/inspector.js?'+Date.now();document.body.appendChild(s);})();">Page structure</a>
+      </p>
+      <p>
+        Some sites block outside scripts. If the bookmarklet does nothing, open DevTools,
+        go to the Console and paste the contents of
+        <a href="assets/inspector.js"><code>assets/inspector.js</code></a>.
+      </p>
+
+      <h3>3. Use browser tools</h3>
+      <ul>
+        <li><strong>Chrome / Edge DevTools:</strong> Elements panel → Accessibility pane → enable “full-page accessibility tree”.</li>
+        <li><strong>Firefox DevTools:</strong> Accessibility panel shows the tree with roles and names.</li>
+        <li><strong>Extensions:</strong> HeadingsMap, Accessibility Insights for Web (“Landmarks” and “Headings” visualisations).</li>
+      </ul>
+
+      <div class="callout good">
+        <p><strong>Quick self-review:</strong> read only your headings, top to bottom. Do they make sense as a table of contents? Could you find the thing you came for?</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="exercises">Hands-on exercises</h2>
+      <p>
+        Both pages below look the same. One has broken structure, one is fixed.
+        Start each exercise with your screen reader already running.
+      </p>
+      <ul class="cards">
+        <li>
+          <h3>Exercise 1: Find it by headings</h3>
+          <p>
+            Open the <a href="exercises/broken.html">broken page</a>. Without using the mouse or
+            reading top to bottom, find: the Sunday programme, the opening hours, and the
+            accessibility information. Use only heading navigation and the headings list.
+          </p>
+          <p>Then do the same on the <a href="exercises/fixed.html">fixed page</a>. What changed?</p>
+        </li>
+        <li>
+          <h3>Exercise 2: Find it by landmarks</h3>
+          <p>
+            On both pages, open the landmarks list. Jump to the main content, then to the search,
+            then to the footer links. How many landmarks did each page give you, and could you
+            tell them apart?
+          </p>
+        </li>
+        <li>
+          <h3>Exercise 3: Audit the broken page</h3>
+          <p>
+            Fill in the <a href="exercises/worksheet.html">audit worksheet</a> for the
+            broken page. Write down every heading and landmark problem you find and how you
+            would fix it. Then click “Show page structure” to compare, and check the
+            <a href="exercises/answers.html">answers</a>.
+          </p>
+        </li>
+        <li>
+          <h3>Exercise 4: Audit your own work</h3>
+          <p>
+            Pick a page from a product you work on. Run the structure inspector and a screen
+            reader’s headings list on it. Note one quick fix you can make this week.
+          </p>
+        </li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>
+        Workshop material on accessible page structure.
+        Source on <a href="https://github.com/zenobia-gawlikowska/headings-and-landmarks-workshop">GitHub</a>.
+      </p>
+    </div>
+  </footer>
+</body>
+</html>

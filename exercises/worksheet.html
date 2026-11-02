@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Audit worksheet – Headings &amp; Landmarks workshop</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="site-title" href="../index.html">Headings &amp; Landmarks</a>
+      <nav class="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="../index.html">Workshop</a></li>
+          <li><a href="broken.html">Broken page</a></li>
+          <li><a href="../cheatsheet.html">Screen reader cheat sheet</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="page wrap" tabindex="-1">
+    <h1>Audit worksheet</h1>
+    <p class="lede">
+      Audit the <a href="broken.html">broken page</a> with your screen reader’s headings and
+      landmarks lists. Copy this checklist into your notes, or print the page.
+    </p>
+
+    <h2>Part 1: Headings</h2>
+    <ol>
+      <li>Write down every heading in order, with its level (for example “h2 Programme”).</li>
+      <li>Is there exactly one <code>h1</code>? Is it the topic of the page?</li>
+      <li>Are any levels skipped going down (h1 → h3, h2 → h4)?</li>
+      <li>Are there empty headings, or headings that don’t describe what follows?</li>
+      <li>Is there text that <em>looks</em> like a heading but isn’t announced as one?</li>
+      <li>Read only the headings: could you find the opening hours from them?</li>
+    </ol>
+
+    <h2>Part 2: Landmarks</h2>
+    <ol>
+      <li>List every landmark and its label (for example “navigation, Main”).</li>
+      <li>Is there one <code>main</code> landmark? Does it hold the main content?</li>
+      <li>Are the header, primary navigation, search and footer exposed as landmarks?</li>
+      <li>Are there two landmarks of the same type that sound the same?</li>
+      <li>Is any content outside every landmark?</li>
+    </ol>
+
+    <h2>Part 3: Fixes</h2>
+    <p>For each problem, write the fix as one line of HTML. Example:</p>
+    <pre><code>Problem: page title is a &lt;div class="t-page"&gt;
+Fix:     &lt;h1 class="t-page"&gt;Autumn Reading Festival 2026&lt;/h1&gt;</code></pre>
+
+    <h2>Part 4: Compare</h2>
+    <p>
+      Click “Show page structure” on the broken page to see what the inspector finds, then
+      open the <a href="fixed.html">fixed page</a> and check the
+      <a href="answers.html">answers</a>.
+    </p>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p><a href="../index.html#exercises">Back to the exercises</a></p>
+    </div>
+  </footer>
+</body>
+</html>
