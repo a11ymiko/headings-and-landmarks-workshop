@@ -1,0 +1,26 @@
+{
+  "name": "headings-and-landmarks-workshop",
+  "version": "1.0.0",
+  "description": "Nearly 70% of screen reader users navigate a long page by headings first, and around 30% use landmarks when they are available ([WebAIM Screen Reader User Survey](https://webaim.org/projects/screenreadersurvey10/)). If the page structure is wrong, those users are lost.",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zenobia-gawlikowska/headings-and-landmarks-workshop.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/zenobia-gawlikowska/headings-and-landmarks-workshop/issues"
+  },
+  "homepage": "https://github.com/zenobia-gawlikowska/headings-and-landmarks-workshop#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.64.1",
+    "@types/node": "^26.6.6"
+  },
+  "dependencies": {
+    "@axe-core/playwright": "^4.14.0"
+  }
+}
